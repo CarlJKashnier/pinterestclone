@@ -15,5 +15,18 @@
   "bugs": {
     "url": "https://github.com/CarlJKashnier/pinterestclone/issues"
   },
-  "homepage": "https://github.com/CarlJKashnier/pinterestclone#readme"
+  "homepage": "https://github.com/CarlJKashnier/pinterestclone#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-mongostore": "^0.1.4",
+    "dotenv": "^2.0.0",
+    "ejs": "^2.5.1",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "mongodb": "^2.2.5",
+    "mongoose": "^4.5.8",
+    "passport": "^0.3.2",
+    "passport-twitter": "^1.0.4",
+    "sanitize-caja": "^0.1.3"
+  }
 }
