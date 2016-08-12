@@ -16,7 +16,7 @@ module.exports = function(passport) {
     passport.use(new TwitterStrategy({
             consumerKey: process.env.twitter_api_key,
             consumerSecret: process.env.twitter_api_secret,
-            callbackURL: 'http://localhost:8888/auth/twitter/callback'
+            callbackURL: 'http://http://powerful-coast-10378.herokuapp.com//auth/twitter/callback'
         },
 
         function(accessToken, refreshToken, profile, callback) {
