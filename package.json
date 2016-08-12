@@ -1,6 +1,6 @@
 {
   "name": "pinterestclone",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "a pinterest clone for freecodecamp.com backend challange",
   "main": "app.js",
   "scripts": {
