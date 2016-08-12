@@ -16,7 +16,7 @@ module.exports = function(passport) {
     passport.use(new TwitterStrategy({
             consumerKey: process.env.twitter_api_key,
             consumerSecret: process.env.twitter_api_secret,
-            callbackURL: 'http://powerful-coast-10378.herokuapp.com/auth/twitter/callback'
+            callbackURL: process.env.callBackURL
         },
 
 
@@ -44,6 +44,8 @@ module.exports = function(passport) {
                         });
                     }
                 });
+                //Add user to the hook into mainData
+
             });
         }));
 };
