@@ -1,0 +1,56 @@
+<html>
+<head>
+  <script src="/jquery.js"></script>
+  <script src="/masonry.min.js"></script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link type="text/css" rel="stylesheet" href="/my.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+
+<script>
+(function($){
+jQuery(window).on('load',(function(){
+  $('.masonry-grid').masonry({
+    // options
+    itemSelector: '.gridItem',
+    percentPosition: true,
+    gutter: 10
+  });
+}))
+});
+</script>
+
+
+
+
+	<title>Pinterist Clone</title>
+
+</head>
+
+<body style="padding-top: 65px">
+	<header>
+	<% include header %>
+</header>
+
+<div class="container">
+				<h1 class="text-center"><%= gallery.userName%>'s wall</h1>
+
+        	<div id="masonry-grid">
+
+        <% if (gallery.userContent !== null) {for(var i=0; i<gallery.userContent.length; i++){%>
+          <div class="gridItem"><img src="<%= gallery.userContent[i] %>"/></div>
+        <%}}%>
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -4,9 +4,6 @@
   "description": "a pinterest clone for freecodecamp.com backend challange",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "scripts":{
     "start": "node app.js"
   },
   "repository": {
@@ -30,6 +27,7 @@
     "mongoose": "^4.5.8",
     "passport": "^0.3.2",
     "passport-twitter": "^1.0.4",
+    "path": "^0.12.7",
     "sanitize-caja": "^0.1.3"
   }
 }

@@ -1,0 +1,22 @@
+.gridItem { width: 33%; float: left; }
+img{
+   width: 100%;
+}
+#dropbox {
+  border: 3px dashed green;
+  width: 100%;
+  height: 100px;
+  display: inline-block;
+}
+#dropboxdel {
+  border: 3px dashed red;
+  width: 100%;
+  height: 100px;
+  display: inline-block;
+}
+#masonry-grid{
+
+   width: 100%; //fallback
+   width: 100vw;
+
+}

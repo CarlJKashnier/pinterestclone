@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var MongoStore = require('connect-mongostore')(session);
-
+var path = require("path");
 require('./passport.js');
 
 mongoose.connect(process.env.MONGODB_URI,{authMechanism: 'ScramSHA1'});
@@ -34,7 +34,7 @@ app.set('view engine', 'ejs');
 require('./routes.js')(app, passport);
 require('./passport.js')(passport);
 
-
+    app.use(express.static(__dirname + '/public/'));
 var server = app.listen(process.env.PORT || 8888);
 console.log("Server running on port: " + (process.env.PORT || 8888));
 //Seeing if Git works

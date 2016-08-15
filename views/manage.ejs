@@ -1,0 +1,118 @@
+<html>
+<head>
+  <script src="/jquery.js"></script>
+  <script src="/masonry.min.js"></script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link type="text/css" rel="stylesheet" href="/my.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+
+<script>
+(function($){
+jQuery(window).on('load',(function(){
+  $('.masonry-grid').masonry({
+    // options
+    itemSelector: '.gridItem',
+    percentPosition: true,
+    gutter: 10
+  });
+}))
+});
+</script>
+
+<script>
+
+$(document).ready(function(){
+  function drop(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    var droppedHTML = evt.dataTransfer.getData("text/html");
+    var dropContext = $('<div>').append(droppedHTML);
+    var imgURL = $(dropContext).find("img").attr('src');
+    console.debug(imgURL);
+    var dataToPost = {userID: userID, imgURL: imgURL}
+    $.ajax({
+      type:"POST",
+  url: "/api/addToUser",
+data: dataToPost,
+dataType: "json",
+success: function(data){
+if (data.status = "you good"){window.location.reload(true)
+}else{
+  alert("Do'h, try again")}
+}
+});
+}
+
+function dropdel(evt) {
+  evt.stopPropagation();
+  evt.preventDefault();
+
+  var droppedHTML = evt.dataTransfer.getData("text/html");
+  var dropContext = $('<div>').append(droppedHTML);
+  var imgURL = $(dropContext).find("img").attr('src');
+  console.debug(imgURL);
+  var dataToPost = {userID: userID, imgURL: imgURL}
+  $.ajax({
+    type:"POST",
+url: "/api/delFromUser",
+data: dataToPost,
+dataType: "json",
+success: function(data){
+if (data.status = "you good"){window.location.reload(true)
+}else{
+alert("Do'h, try again")}
+}
+});
+}
+
+
+
+var userID = <%= user.twitter.id %>;
+var dropbox = document.getElementById('dropbox');
+dropbox.addEventListener('drop', drop, false);
+var dropboxdel = document.getElementById('dropboxdel');
+dropboxdel.addEventListener('drop', dropdel, false);
+})
+function imgError(image) {
+  console.log("imgErr")
+    image.onerror = "";
+    image.src = "http://www.teltum.com/images/noimg.gif";
+    return true;
+}
+  </script>
+
+
+	<title>Pinterist Clone</title>
+
+</head>
+
+<body style="padding-top: 65px">
+	<header>
+	<% include header %>
+</header>
+
+<div class="container">
+				<h1 class="text-center"><%= user.twitter.displayName%>s wall</h1>
+				<p class="text-center span12"><div id="dropbox" class="dropbox text-center" ondragover="return false" >Drop an Image.... to add</div></p>
+        <p class="text-center span12"><div id="dropboxdel" class="dropbox text-center" ondragover="return false" >Drop an Image.... to remove</div></p>
+
+        	<div id="masonry-grid">
+
+        <% if (userContent !== null) {for(var i=0; i<userContent.length; i++){%>
+          <div class="gridItem"><img onerror="imgError(this);" src="<%= userContent[i] %>"/></div>
+        <%}}%>
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

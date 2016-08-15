@@ -5,4 +5,4 @@ var ugSchema = mongoose.Schema({
         userContent: Array
 });
 
-module.exports = mongoose.model('userGallery', ugSchema);
+module.exports = mongoose.model('UserGallery', ugSchema);

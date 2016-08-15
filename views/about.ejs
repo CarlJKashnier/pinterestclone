@@ -11,28 +11,9 @@
 </head>
 
 <body style="padding-top: 65px">
-	<nav class="navbar navbar-fixed-top navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Pinterest Clone</a>
-				<ul class="nav navbar-nav">
-					<li><a href="/">Home</a></li>
-					<% if(user !== null) {%>
-						<li><a href="/Manage/<%=user.twitter.id%>">Manage My Wall</a></li>
-						<%}%>
-							<li><a href="/About">About</a></li>
-			</div>
-			<div class="nav navbar-text navbar-right">
-				<% if(user !== null) {%> Hello,
-					<%= user.twitter.displayName%>
-						<%} else {%>
-							<span><a href='/auth/twitter' class='btn btn-sm btn-primary'><span class='fa fa-twitter'></span> Log in with Twitter</a>
-							</span>
-							<%}%>
-			</div>
-			</ul>
-		</div>
-	</nav>
+	<header>
+	<% include header %>
+</header>
 	<div class="container">
 		<div class="row">
 			<div class="span12">

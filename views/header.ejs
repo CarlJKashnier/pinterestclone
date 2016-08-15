@@ -1,0 +1,22 @@
+<nav class="navbar navbar-fixed-top navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Pinterest Clone</a>
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <% if(user !== null && user !== undefined) {%>
+          <li><a href="/Manage/<%=user.twitter.id%>">Manage My Wall</a></li>
+          <%}%>
+            <li><a href="/About">About</a></li>
+    </div>
+    <div class="nav navbar-text navbar-right">
+      <% if(user !== null && user !== undefined) {%> Hello,
+        <%= user.twitter.displayName%>
+          <%} else {%>
+            <span><a href='/auth/twitter' class='btn btn-sm btn-primary'><span class='fa fa-twitter'></span> Log in with Twitter</a>
+            </span>
+            <%}%>
+    </div>
+    </ul>
+  </div>
+</nav>
